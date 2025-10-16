@@ -14,3 +14,6 @@
 `nano nano_file.txt`
 
 ![nano](./images/02.nano.png)
+
+
+The above images shows what the inside of the editors looks like

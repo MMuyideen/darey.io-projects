@@ -31,8 +31,8 @@ This approach is straightforward and is commonly used for adding brief descripti
 ### Example
 - Using the vim editor, create a file called `comments.sh`
 - Paste the above code in the file
-- save & exit the editor
-- grant executable permission `chmod 700 comments.sh`
+- Save & exit the editor
+- Make the file executable `chmod 700 comments.sh`
 - Run the script `./comments.sh`
 ![comments](./images/01.comments.png)
 

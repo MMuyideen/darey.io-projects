@@ -60,6 +60,15 @@ id user1 user2 user3
 ```
 ![Run script](./images/04.run-script.png)
 
+# Security Best Practices for File Permissions
+
+- Follow the principle of least privilege: give only the permissions required for the task.
+- Avoid chmod 777 — it grants read, write and execute to everyone and can expose files to accidental or malicious modification/execution.
+- Prefer tighter defaults. Example:
+  - chmod 754 script.sh -> owner = rwx (7), group = r-x (5), others = r-- (4)
+  - This allows the owner to modify and run the script while limiting write access by others.
+- For sensitive files, prefer 700 (owner-only) or set group ownership and use 750/770 where appropriate.
+- Test permission changes in a safe environment before applying to production.
 
 ## Variable Declaration and Initialization:
 

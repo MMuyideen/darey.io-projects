@@ -36,7 +36,7 @@ This approach is straightforward and is commonly used for adding brief descripti
 - Run the script `./comments.sh`
 ![comments](./images/01.comments.png)
 
-From the image which shows the out put of running the script, you can see only the echo command is executed and the comments are ignored
+From the image above which shows the output of running the script, you can see only the echo command is executed and the comments are ignored
 
 
 ## Best Practices for Commenting:

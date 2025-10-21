@@ -184,7 +184,7 @@ done
 
 Lets examine a real example:
 
-1. Create a new script file and name it [loop.sh](./loop.sh) and paste the code below
+1. Create a new script file and name it [loop.sh](./scripts/loop.sh) and paste the code below
 
 ```bash
 #!/bin/bash

@@ -422,9 +422,11 @@ done
 ![Partial Table, Descending Order](./images/04.pt-do.png)
 
 5. I**nvalid Input Handling**
+
 ![Invalid Input Handling](./images/05.invalid-input.png)
 
 6. **Repeat Program**
+
 ![Repeat](./images/06.repeat.png)
 
 

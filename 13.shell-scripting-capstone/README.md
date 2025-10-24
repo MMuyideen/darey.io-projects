@@ -18,7 +18,7 @@ Your script should prompt the user to enter a number and then ask if they prefer
 - **Readable Output**: Display the multiplication table in a clear and readable format, adhering to the user's choice of range.
 - **Comments and Code Quality**: The script should be well-commented, explaining the purpose of different sections and any important variables or logic used.
 
-Ensure the code is neatly formatted for easy readability.
+
 
 ### Example Script Flow:
 1. Prompt the user to enter a number for the multiplication table.
@@ -428,10 +428,6 @@ done
 6. **Repeat Program**
 
 ![Repeat](./images/06.repeat.png)
-
-
-
-
 
 
 ## Learning Summary

@@ -91,6 +91,7 @@ Considering Zappy e-Bank's plan to expand its team with 10 more developers and 5
 > Notice that after creating the policy, if you search for `developer` in the search box, you will notice that a number of policies are returned. This highlights the presence of both AWS managed and customer managed policies. AWS managed policies are predefined by AWS and provide permissions for many common use cases, allowing for quick and broad access management across AWS services without the need for custom policy creation like we just did. In contrast, customer managed policies are created and fully controlled by you, allowing for more tailored, specific access controls that can be finely tuned to your organization's requirements.
 
 ![create policy](./images/05.create-policy.png)
+
 ---
 
 ### Create policy for the Data Analyst team

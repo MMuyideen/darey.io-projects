@@ -181,7 +181,7 @@ activate_infra_environment
 
 With the updated version of the code, you can now see how clean the code looks. You can easily understand what each function is doing based on its name, comments, and the order in which the functions are called at the end
 
-![Funtion refacor](./images/02.ref-func.png)
+![Funtion refacor](./images/02.func-check-arg.png)
 
 
 ## Function to Check if AWS CLI is installed

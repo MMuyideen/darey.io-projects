@@ -6,7 +6,7 @@ Docker images are the building blocks of containers. They are lightweight, porta
 
 ## Pulling Images from Docker Hub
 
-Docker Hub is a cloud-based registry that hosts a vast collection of Docker images. You can pull images from Docker Hub to your local machine using the 'docker pull' commano
+Docker Hub is a cloud-based registry that hosts a vast collection of Docker images. You can pull images from Docker Hub to your local machine using the 'docker pull' command
 To explore available images on Docker Hub, the docker command provides a search subcommand. For instance, to find the Ubuntu image, you can execute:
 
 ```bash

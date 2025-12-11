@@ -53,6 +53,8 @@ To create a Dockerfile, use a text editor of your choice, such as vim or nano. S
 Here's a simple example of a Dockerfile for a html file: Let's create an image with using a dockerfile. Paste the code snippet below in a file named 'dockerfile' This example assumes you have a basic HTML file named
 `index.html` in the same directory as your Dockerfile.
 
+[Dockerfile](./dockerfile)
+
 ```docker
 # Use the official NGINX base image
 FROM nginx:latest

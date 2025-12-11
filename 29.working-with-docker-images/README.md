@@ -55,7 +55,7 @@ Here's a simple example of a Dockerfile for a html file: Let's create an image w
 
 [Dockerfile](./dockerfile)
 
-```docker
+```dockerfile
 # Use the official NGINX base image
 FROM nginx:latest
 

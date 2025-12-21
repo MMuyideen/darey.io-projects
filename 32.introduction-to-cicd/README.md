@@ -124,7 +124,7 @@ Key Concepts and Terminology:
    ![Create Repo](./images/01.create-repo.png)
 
 2. Create a Simple Node.js Application:
-    - Initialize a Node.js project (`npm init`).
+    - Initialize a Node.js project `npm init` & `npm install express`
     - Create a simple server using Express.js to serve a static web page.
     - Add your code to the repository and push it to GitHub.
 
@@ -218,7 +218,93 @@ jobs:
 
 This workflow is a basic example for a Node.js project, demonstrating how to automate testing across different Node.js versions and ensuring that your code integrates and works as expected in a clean environment.
 
-### Checking the Pipeline
+
+
+
+4. Testing and Deployment:
+
+- Add automated tests for your application.
+
+    - Install Test Dependencies
+
+        ```bash
+        npm install --save-dev jest supertest
+        ```
+
+    - Update `package.json`
+        ```json
+        {
+        "scripts": {
+            "start": "node index.js",
+            "test": "jest"
+        }
+        }
+        ```
+    - Create `__tests__/app.test.js`
+        ```javascript
+        const request = require('supertest');
+        const express = require('express');
+
+        const app = express();
+        app.get('/', (req, res) => res.send('Hello World!'));
+
+        describe('GET /', () => {
+        it('should return Hello World', async () => {
+            const res = await request(app).get('/');
+            expect(res.statusCode).toBe(200);
+            expect(res.text).toBe('Hello World!');
+        });
+        });
+
+        ```
+
+
+- Create a workflow for deployment (e.g., to a cloud service like Heroku or AWS). 
+    - Add the below snippet to the yaml file to deploy to Heroku. Ensure to save the API key securely in Github secret
+
+    ```yaml
+    - name: Install Heroku CLI # <- IMPORTANT!!! Make sure the cli is installed before using the action
+    uses: actions/checkout@v2
+    run: |
+    curl https://cli-assets.heroku.com/install.sh | sh
+
+    - name: Deploy to Heroku
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: akhileshns/heroku-deploy@v3.14.15 # This is the action
+        with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "your-unique-heroku-app-name" # must be unique in Heroku
+        heroku_email: "your-email@example.com"
+    ```
+
+5. Experiment and Learn:
+
+- Modify workflows to see how changes affect the CI/CD process.
+- Try adding different types of tests (unit tests, integration tests).
+
+    - Install ESLint for Code Quality checks
+        ```bash
+        npm install --save-dev eslint
+        npx eslint --init
+        ```
+
+    - update `package.json` with lint script
+        ```json
+        "scripts": {
+        "lint": "eslint ."
+        }
+        ```
+
+    - update yaml script
+        ```yaml
+        - name: Run ESLint
+          run: npm run lint
+        ```
+
+The full script can be found [here](./node.yaml) and here is the [Repository](https://github.com/MMuyideen/node-ci-cd-demo) which contains the full code
+
+
+## Checking the Pipeline Run
 
 After Pushing the code to remote repository on Github, we can see the Github Action run on Github
 
@@ -227,16 +313,6 @@ After Pushing the code to remote repository on Github, we can see the Github Act
 Clicking on the Run , we can see the steps being executed
 
 ![Build steps](./images/04.build-steps.png)
-
-
-4. Testing and Deployment:
-    - Add automated tests for your application.
-    - Create a workflow for deployment (e.g., to a cloud service like Heroku or AWS).
-
-5. Experiment and Learn:
-
-- Modify workflows to see how changes affect the CI/CD process.
-- Try adding different types of tests (unit tests, integration tests).
 
 ## LEARNING SUMMARY
 

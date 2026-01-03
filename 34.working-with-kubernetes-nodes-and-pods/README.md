@@ -115,6 +115,17 @@ From our knowledge of docker, we know **Container** represents a lightweight, st
 Using `kubectl`, we can deploy Pods and, consequently, the containers within them to the Minikube cluster. This process ensures that the defined containers work
 in concert within the shared context of a Pod.
 
+## Learning Summary
+
+- Key takeaways:
+  - Nodes are the worker machines that run Pods; Minikube provides a single-node local cluster for development.
+  - Pods are the smallest deployable unit; containers run inside Pods and share network/storage.
+  - kubectl is the primary tool to inspect and manage nodes, pods, and containers.
+
+- Hands‑on skills gained:
+  - Start, stop, and delete a Minikube cluster (minikube start|stop|delete).
+  - Inspect cluster resources: kubectl get nodes, kubectl get po -A, kubectl describe <resource>.
+  - Manage Pods: create from YAML, view logs (kubectl logs), delete pods, and port-forward for local testing.
 
 
 

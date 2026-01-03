@@ -132,9 +132,9 @@ For mac users, let's install minikube
     ```
 The command above downloads minikube's binary and install minikube.
 
-3. Just like windows and linux, we need docker desktop as a driver for minikube. TO install docker desktop for mac go to [docker desktop official documentation](https://docs.docker.com/desktop/setup/install/mac-install/) to install it if not installed
+3. Just like windows and linux, we need docker desktop as a driver for minikube. To install docker desktop for mac go to [docker desktop official documentation](https://docs.docker.com/desktop/setup/install/mac-install/) to install it if not installed
 
-4. Run the command below to start minikube using virtualbox as the driver
+4. Run the command below to start minikube using docker as the driver
 
     ```bash
     minikube start --driver=docker

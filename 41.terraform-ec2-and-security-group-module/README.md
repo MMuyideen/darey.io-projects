@@ -166,4 +166,17 @@ Task 5: Deployment
 3. verify that Apache2 is installed and running
 ![apache](./images/04.apache.png)
 
-11. Document your observations and any challenges faced during the project.
+
+## Project Learning Summary
+1. Key Learning Outcomes
+  - Infrastructure as Code (IaC) Modularity: Practiced creating highly reusable modules for Security Groups and EC2. This separation allows for "Plug and Play" infrastructure where the same Security Group module can be reused for different projects.
+
+  - Automated Bootstrapping (UserData): Mastered the use of shell scripts to automate the installation of a web server. This demonstrates the power of "stateless" infrastructure—if the server dies, Terraform can recreate it and the script will automatically restore the website.
+
+## Observations & Challenges Faced
+**Challenge 1**: Package Manager Conflicts
+**Observation**: When switching from Amazon Linux to Ubuntu, the UserData script failed because it used httpd instead of apache2.
+
+**Challenge**: Different Linux distros use different names for the same software.
+
+**Resolution**: Updated the bash script to use apt-get and apache2. This highlighted the importance of matching the UserData script to the specific AMI being used.

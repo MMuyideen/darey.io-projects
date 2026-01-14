@@ -33,7 +33,7 @@ Ansible is a powerful automation tool that simplifies the management of IT infra
 
 The output should display the installed Ansible version like this
 
-![Ansible install]()
+![Ansible install](./images/01.install-ansible.png)
 
 ### Task 2 - Configure SSH Key-Based Authentication
 1. Generate an SSH key pair on the control node: ```ssh-keygen -t rsa```
@@ -41,7 +41,7 @@ The output should display the installed Ansible version like this
 2. Copy the public key to the target machine(s): ```ssh-copy-id user@<target-server-ip>```
 3. Test SSH access without a password: ```ssh user@ target-server-ip>```
 
-![test connect]()
+![test connect](./images/02.ssh-connect.png)
 
 You have now successfully configured a passwordless SSH access.
 
@@ -60,29 +60,27 @@ target2 ansible_host=<target2-ip> ansible_user=<user>
 ```
 4. Save and close the file.
 
+![Create ini](./images/03.create-ini.png)
+
 ### Task 4 - Test Ansible Connectivity
 1. Test Ansible connectivity to the target machines:
 ```ansible -i inventory.ini linux_servers -m ping```
 
 The output should show a `pong` response from each target machine.
 
-![Ansible Connectivity]()
+![Ansible Connectivity](./images/04.test-connectivity.png)
 
 
 ### Task 5 - Run a Simple Ansible Ad-Hoc Command
 1. Run a command to check the uptime of target machines:
 ```ansible -i inventory.ini linux_servers -m command -a "uptime"```
 
-![Ansible Uptime]()
-
 2. Run a command to check disk usage:
-```ansible -i inventory ini linux_servers -m shell -a "df -h"```
-
-![Ansible disk]()
+```ansible -i inventory.ini linux_servers -m shell -a "df -h"```
 
 3. Observe the outputs to confirm successful execution.
 
-![Ansible Ad]()
+![Ansible Test](./images/05.ansible-test.png)
 
 ## Conclusion
 This project demonstrated how to set up Ansible on a Linux server and configure it to manage target machines. You installed Ansible, configured SSH access, created an inventory file, and verified connectivity using ad-hoc commands. With this foundation, you're now prepared to explore more advanced Ansible functionalities like writing playbooks and managing complex infrastructures.

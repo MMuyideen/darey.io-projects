@@ -39,7 +39,7 @@ The output should display the installed Ansible version like this
 1. Generate an SSH key pair on the control node: ```ssh-keygen -t rsa```
     - Press `Enter` to accept the default path and passphrase.
 2. Copy the public key to the target machine(s): ```ssh-copy-id user@<target-server-ip>```
-3. Test SSH access without a password: ```ssh user@ target-server-ip>```
+3. Test SSH access without a password: ```ssh user@target-server-ip>```
 
 ![test connect](./images/02.ssh-connect.png)
 

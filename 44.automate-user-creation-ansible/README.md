@@ -43,7 +43,7 @@ ansible --version
 ssh-keygen -t rsa
 ssh-copy-id user@<target-server-ip>
 ```
-![install Ansible](./images/02.ssh-setup.png)
+![SSH Setup](./images/02.ssh-setup.png)
 
 
 ### Task 2 - Set Up the Ansible Inventory File

@@ -1,44 +1,71 @@
-Backup and Restore Files on a Linux Server using Ansible
-Introduction
+# Backup and Restore Files on a Linux Server using Ansible
+
+### Introduction
+
 Data backup and restoration are essential practices for ensuring data safety and continuity in Linux server management. Ansible, an automation tool, simplifies these tasks by providing a scalable and repeatable solution. This project will guide you through creating Ansible playbooks to automate the backup and restore process for files on a Linux server.
-Objectives
+
+### Objectives
 1. Understand the basics of Ansible and its role in automation.
 2. Set up an Ansible environment for managing Linux servers.
 3. Create a playbook to back up files to a remote or local directory.
 4. Develop a playbook to restore files from a backup.
 5. Test and verify the backup and restore processes.
-Prerequisites
-1. Linux Servers: At least one server to act as the target machine and an optional control machine for Ansible.
-2. Ansible Installed: Ansible installed on the control machine. (Refer to the Ansible installation guide to install it if not already installed.)
-3. SSH Access: SSH access between the control machine and target servers with public key authentication.
-4. Tools: A text editor to create and edit Ansible playbooks.
-Tasks Outline
+
+### Prerequisites
+1. **Linux Servers**: At least one server to act as the target machine and another control machine for Ansible.
+2. **Ansible Installed**: Ansible installed on the control machine. (Refer to the [Ansible installation guide](../43.setting-up-ansible/README.md) if needed.)
+3. **SSH Access**: SSH access between the control machine and target servers with public key authentication.
+4. **Tools**: A text editor to create and edit Ansible playbooks.
+
+### Tasks Outline
 1. Install and configure Ansible on the control machine.
 2. Set up an inventory file for the target Linux server.
 3. Create an Ansible playbook to back up files.
 4. Create an Ansible playbook to restore files from a backup.
 5. Test the backup and restore functionality.
-Project Tasks
-Task 1 - Install and Configure Ansible
+
+## Project Tasks
+
+### Task 1 - Install and Configure Ansible on host machine
 1. Install Ansible on the control machine (Ubuntu example):
+```bash
 sudo apt update
 sudo apt install ansible -y
+```
+
 2. Verify the installation:
+```bash
 ansible --version
+```
+![install Ansible](./images/01.install-ansible.png)
+
 3. Set up SSH key-based authentication between the control machine and target server:
+```bash
 ssh-keygen -t rsa
 ssh-copy-id user@<target-server-ip>
-Task 2 - Set Up the Ansible Inventory File
+```
+![SSH Setup](./images/02.ssh-setup.png)
+
+
+### Task 2 - Set Up the Ansible Inventory File
+
 1. Create an inventory file to define the target server:
+```bash
 nano inventory.ini
+```
 2. Add the target server details:
 ```ini
 [linux_servers]
 target ansible_host=<target-server-ip> ansible_user=<user>
 ```
-Task 3 - Create an Ansible Playbook to Back Up Files
+![Inventory file](./images/03.inventory-ini-file.png)
+
+### Task 3 - Create an Ansible Playbook to Back Up Files
+
 1. Create a playbook file for backup:
-nano backup. yml
+```bash
+nano backup.yml
+```
 2. Add the following playbook content:
 
 ```yaml
@@ -58,10 +85,16 @@ nano backup. yml
         remote_src: yes
 ```
 
-3. Replace '/path/to/files' with the path of the files you want to back up.
-Task 4 - Create an Ansible Playbook to Restore Files
+3. Replace `/path/to/files` with the path of the files you want to back up.
+![backup yml](./images/04.backup-yaml-file.png)
+
+### Task 4 - Create an Ansible Playbook to Restore Files
+
 1. Create a playbook file for restoration:
-nano restore-yml
+```bash
+nano restore.yml
+```
+
 2. Add the following playbook content:
 
 ```yaml
@@ -75,17 +108,33 @@ nano restore-yml
         remote_src: yes
 ```
 
+3. Replace `/path/to/files` with the original file location.
+![Restore Yaml](./images/05.restore-yaml-file.png)
 
-3. Replace '/path/to/files' with the original file location.
-Task 5 - Test the Backup and Restore Functionality
+### Task 5 - Test the Backup and Restore Functionality
 1. Run the backup playbook:
+```bash
 ansible-playbook -i inventory.ini backup.yml
-2. Verify the backup directory and files on the target server:
-ls /backup
-3. Run the restore playbook:
-ansible-playbook -i inventory.ini restore.yml
-4. Verify the restored files in the original location on the target server:
-ls /path/to/files
+```
+![Rub Backup](./images/06.run-backup.png)
 
-Conclusion
+2. Verify the backup directory and files on the target server:
+```bash
+ls /backup
+```
+![Check backup](./images/07.check-backup.png)
+
+3. Run the restore playbook:
+```bash
+ansible-playbook -i inventory.ini restore.yml
+```
+![Run Restore](./images/08.run-restore.png)
+
+4. Verify the restored files in the original location on the target server:
+```bash
+ls /home/targetuser/restore
+```
+![verify restore](./images/09.verify-restore.png)
+
+## Conclusion
 This project introduced you to automating file backup and restoration on a Linux server using Ansible. You set up an Ansible environment, created playbooks for backup and restoration, and verified the process. With these skills, you can extend the playbooks to include more servers, schedule regular backups, or integrate advanced options like compression or encryption.

@@ -93,6 +93,8 @@ sudo chown prometheus:prometheus /etc/prometheus
 ```
 ![Install Prometheus](./images/04.install-prometheus.png)
 
+> For a comprehensive Prometheus installation guide, Check out this [resource](https://www.cherryservers.com/blog/install-prometheus-ubuntu)
+
 2. Open the Prometheus configuration file (`prometheus.yml`):
 ```bash
 sudo nano /etc/prometheus/prometheus.yml
